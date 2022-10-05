@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    public GameState State;
+
     [SerializeField] TextMeshProUGUI m_gameOverText;
     [SerializeField] TextMeshProUGUI m_timerText;
     [SerializeField] float m_gameTimeInSeconds = 60f;
@@ -10,6 +14,10 @@ public class GameManager : MonoBehaviour
     static bool m_gameIsPlaying = false;
     public static bool GameIsPlaying = m_gameIsPlaying;
     public static float RespawnHeight = -5f;
+
+    private void Awake() {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -51,6 +59,25 @@ public class GameManager : MonoBehaviour
         m_timerText.text = ((int)m_timer).ToString();
     }
 
+    void UpdateGameState(GameState newState) {
+        State = newState;
+
+        switch(newState) {
+            case GameState.StartScreen:
+                break;
+            case GameState.Playing:
+                break;
+            case GameState.LevelComplete:
+                HandleLevelCompleted();
+                break;
+            case GameState.GameOver:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+        }
+
+    }
+
     void GameOver() 
     {
         m_gameIsPlaying = false;
@@ -73,6 +100,12 @@ public class GameManager : MonoBehaviour
         m_gameOverText.gameObject.SetActive(true);
     }
 
+    void HandleLevelCompleted() {
+        m_gameIsPlaying = false;
+
+        Time.timeScale = 0f;
+    }
+
     public void RestartGame() 
     {
         if(!m_gameIsPlaying)
@@ -87,5 +120,12 @@ public class GameManager : MonoBehaviour
             m_timer = m_gameTimeInSeconds;
             m_gameIsPlaying = true;
         }
+    }
+
+    public enum GameState {
+        StartScreen,
+        Playing,
+        LevelComplete,
+        GameOver
     }
 }
