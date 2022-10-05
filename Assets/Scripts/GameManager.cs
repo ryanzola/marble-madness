@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // Set the timescale to 0 to pause the game at the start
-        Time.timeScale = 1f;
+        Time.timeScale = 0f;
 
         // Set the game timer to number of seconds in a round
         m_timer = m_gameTimeInSeconds;
