@@ -49,7 +49,7 @@ public class Score : MonoBehaviour
             CalculateDistance();
             int delta = (int)posDelta;
 
-            if(posDelta > 1 && (int)posDelta % 10 == 0 && delta != current) {
+            if(posDelta > 1 && (int)posDelta % 10 == 0 && delta != current && delta > current) {
                 // if((int)posDelta == current) yield return null;
                 
                 current = delta;

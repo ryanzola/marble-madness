@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState State;
+    public static event Action<GameState> OnGameStateChanged;
 
     [SerializeField] TextMeshProUGUI m_gameOverText;
     [SerializeField] TextMeshProUGUI m_timerText;
@@ -15,12 +16,16 @@ public class GameManager : MonoBehaviour
     public static bool GameIsPlaying = m_gameIsPlaying;
     public static float RespawnHeight = -5f;
 
+
+
     private void Awake() {
         Instance = this;
     }
 
     void Start()
     {
+        UpdateGameState(GameState.StartScreen);
+
         // Set the timescale to 0 to pause the game at the start
         Time.timeScale = 0f;
 
@@ -76,6 +81,7 @@ public class GameManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
 
+        OnGameStateChanged?.Invoke(newState);
     }
 
     void GameOver() 
@@ -102,8 +108,8 @@ public class GameManager : MonoBehaviour
 
     void HandleLevelCompleted() {
         m_gameIsPlaying = false;
-
         Time.timeScale = 0f;
+        Debug.Log(m_timer);
     }
 
     public void RestartGame() 
