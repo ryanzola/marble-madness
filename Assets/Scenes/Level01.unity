@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.25
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 3bc014a9f6de74d6a9c371f663240abb, type: 2}
@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -50}
+  m_AnchoredPosition: {x: 200, y: -50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &229078075
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 32
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -287,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf7db9a99eb842fa81e72d71a6069f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  State: 0
   m_gameOverText: {fileID: 771992628}
   m_timerText: {fileID: 2075795179}
   m_gameTimeInSeconds: 60
@@ -803,6 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scoreText: {fileID: 229078075}
+  Distance: 0
 --- !u!114 &972420791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,6 +1804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_scoreText: {fileID: 229078075}
+  Distance: 0
 --- !u!1 &1249385421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,11 +2829,11 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7431700444094239210, guid: 659c2c99f91b74bf7abab630f2aa85d4, type: 3}
+  - {fileID: 2100000, guid: e6dda9b35af7340be9d4ecb7513cdb01, type: 2}
   - {fileID: -6478536213147159724, guid: 659c2c99f91b74bf7abab630f2aa85d4, type: 3}
-  - {fileID: -7207982334112204411, guid: 659c2c99f91b74bf7abab630f2aa85d4, type: 3}
-  - {fileID: 7299142142098027381, guid: 659c2c99f91b74bf7abab630f2aa85d4, type: 3}
-  - {fileID: 2509464184655005107, guid: 659c2c99f91b74bf7abab630f2aa85d4, type: 3}
+  - {fileID: 2100000, guid: 60073abbfeb624a5db18bad1db18eaa5, type: 2}
+  - {fileID: 2100000, guid: 142804527e316438fa4e9df90544899f, type: 2}
+  - {fileID: 2100000, guid: 7d0aa947b90fc4c7db41a6aa682b85d4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
